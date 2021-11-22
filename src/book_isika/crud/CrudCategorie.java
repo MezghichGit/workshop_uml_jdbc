@@ -21,5 +21,41 @@ public class CrudCategorie {
 	{
 		System.out.println(listCategorie);
 	}
+	
+	public void supprimerCategorie(int idC)
+	{
+		int compteur = 0;
+		int indexCat = 0;
+		
+		for(Categorie cat : listCategorie)
+		{ 
+			if(cat.getId() == idC)
+			{
+				indexCat = compteur;
+			}
+			compteur++;
+		}
+		
+		
+		listCategorie.remove(indexCat);
+	}
+	
+	public void modifierCategorie(int idC, String newName)
+	{
+		int compteur = 0;
+		int indexCat = 0;
+		
+		for(Categorie cat : listCategorie)
+		{ 
+			if(cat.getId() == idC)
+			{
+				indexCat = compteur;
+			}
+			compteur++;
+		}
+		
+		listCategorie.set(indexCat, new Categorie(idC,newName));
+
+	}
 
 }

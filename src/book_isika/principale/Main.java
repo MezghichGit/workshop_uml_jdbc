@@ -27,8 +27,30 @@ public class Main {
 		CrudCategorie crudC = new CrudCategorie();
 		crudC.listCategorie();
 	}
-	public static void supprimer() {}
-	public static void modifier() {}
+	public static void supprimer() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Donner l'id de la Catégorie à supprimer");
+		int idC =sc.nextInt();
+		CrudCategorie crudC = new CrudCategorie();
+		crudC.supprimerCategorie(idC);
+		System.out.println("Suppression avec succès!");
+	}
+	
+	public static void modifier() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Donner l'id de la Catégorie à modifier");
+		int idC =sc.nextInt();
+		
+		System.out.println("Donner le nouveau nom de la Catégorie");
+		String newNom = sc.next();
+		
+		CrudCategorie crudC = new CrudCategorie();
+		crudC.modifierCategorie(idC, newNom);
+		System.out.println("Modification avec succès!");
+	}
+	
+	
+
 	
 	public static void main(String[] args) {
 		
@@ -48,6 +70,8 @@ public class Main {
 		 switch(op){
 				case 'a' : add(); break;
 				case 'd' : display(); break;
+				case 's' : supprimer(); break;
+				case 'm' : modifier(); break;
 				case 'q' : System.exit(-1); break;
 				
 		}
