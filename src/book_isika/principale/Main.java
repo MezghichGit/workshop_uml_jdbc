@@ -1,5 +1,6 @@
 package book_isika.principale;
 
+import java.sql.*;
 import java.util.*;
 
 import book_isika.crud.*;
@@ -10,20 +11,18 @@ public class Main {
 	//public static ArrayList<Livre> listLivre;
 	
 	
-	public static void add() {
+	public static void add() throws SQLException {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Donner id Catégorie");
-		int id =sc.nextInt();
 		
 		System.out.println("Donner le nom de la Catégorie");
 		String nom = sc.next();
 		
-		Categorie c1 = new Categorie(id,nom);
+		Categorie c1 = new Categorie(nom);
 		
 		CrudCategorie crudC = new CrudCategorie();
 		crudC.ajoutCategorie(c1);
 	}
-	public static void display() {
+	public static void display() throws SQLException{
 		CrudCategorie crudC = new CrudCategorie();
 		crudC.listCategorie();
 	}
@@ -52,8 +51,9 @@ public class Main {
 	
 
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException {
 		
+	
 		while (true)
 		{
 		 System.out.println("Ajouter Catégorie Cliquer : 'a' ");
